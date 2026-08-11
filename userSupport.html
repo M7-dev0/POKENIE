@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support</title>
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="userSupport.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="logopokenie">
+            <img src="assets/logoPokénie_2.png" alt="Pokénie logo">
+        </div>
+        <nav class="menu">
+            <a href="./index.html">Home</a>
+            <a href="./search.html">Search Pokémons</a>
+            <a href="">My Favorites</a>
+        </nav>
+    </header>
+    <main>
+    <h1>User Support</h1>
+    <form>
+        <div class="support">
+        <div class="field">
+            <label for="nome">Name:</label>
+            <input id="nome" type="text" maxlength="30" placeholder="Insert your real name..." required>
+        </div>
+        <div class="field">
+            <label for="email">Email:</label>
+            <input id="email" type="email" placeholder="Insert your email. Ex: myemail@address.com" required>
+        </div>
+        <div class="field">
+            <label for="numero_telefone">Phone number:</label>
+            <input id="numero_telefone" type="tel" maxlength="15" placeholder="Insert your phone number..." required>
+        </div>
+        
+        <div class="box1">
+            <label for="box1">The information i provided above is legitimate.</label>
+            <input id="box1" type="checkbox" required>
+        </div>
+        
+        <div class="field">
+        <label for="comentarios">Comments:</label>
+        <textarea id="comentarios" maxlength="4000" placeholder="Describe your thoughts, opinions or feedbacks..." required></textarea>
+        </div>
+
+        <div class="container">
+        <input type="submit" value="Submit"> 
+        <input type="reset" value="Clear All">
+        </div>
+    </div>
+    </form>
+</main>
+    <footer class="copyright">
+        &copy; 2026 The Pokénie Association. All rights reserved.
+    </footer>
+</body>
+</html>
