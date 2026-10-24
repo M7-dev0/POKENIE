@@ -19,8 +19,11 @@ body {
     font-family: var(--fonte-principal);
     display: flex;
     flex-direction: column;
-    
-    background-color: var(--cor-fundo-primaria);
+    background-image: url(../assets/fundo.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .cabecalho{
