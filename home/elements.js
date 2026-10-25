@@ -83,17 +83,60 @@ const listaPokemons = [
 
 const container = document.getElementById("listaDePokemons");
 
-listaPokemons.forEach(function(pokemon){
-  console.log(pokemon)
+// Recupera os favoritos salvos no navegador
+let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 
-  const cardHTML = `
-    <div class="card">
-      <img src="${pokemon.sprites.front_default}">
-      <h3>Id: ${pokemon.id}</h3>
-      <h2>${pokemon.name}</h2>
-    </div> 
-  `;
+// Exibe os Pokémon na tela
+function mostrarPokemons() {
+    container.innerHTML = "";
 
-  container.innerHTML += cardHTML
+    listaPokemons.forEach(function(pokemon) {
+        const estaFavoritado = favoritos.includes(pokemon.id);
 
-})
+        const cardHTML = `
+            <div class="card">
+                <img
+                    src="${pokemon.sprites.front_default}"
+                    alt="${pokemon.name}"
+                >
+                <h3>Id: ${pokemon.id}</h3>
+                <h2>${pokemon.name}</h2>
+
+                <button
+                    class="botao-favorito"
+                    data-id="${pokemon.id}"
+                    aria-pressed="${estaFavoritado}"
+                >
+                    ${estaFavoritado ? "❤️ Favoritado" : "🤍 Favoritar"}
+                </button>
+            </div>
+        `;
+
+        container.innerHTML += cardHTML;
+    });
+}
+
+// Adiciona ou remove um Pokémon dos favoritos
+container.addEventListener("click", function(event) {
+    const botao = event.target.closest(".botao-favorito");
+
+    if (!botao) return;
+
+    const id = Number(botao.dataset.id);
+
+    if (favoritos.includes(id)) {
+        favoritos = favoritos.filter(function(idFavorito) {
+            return idFavorito !== id;
+        });
+    } else {
+        favoritos.push(id);
+    }
+
+    // Salva a lista no navegador
+    localStorage.setItem("favoritos", JSON.stringify(favoritos));
+
+    // Atualiza os botões na tela
+    mostrarPokemons();
+});
+
+mostrarPokemons();

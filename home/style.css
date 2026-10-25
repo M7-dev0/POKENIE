@@ -114,3 +114,37 @@ h3 {
 .icon img {
     height: 80px;   
 }
+
+.botao-favorito {
+    margin-top: 12px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--cor-primaria);
+    color: white;
+    font-family: var(--fonte-principal);
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.botao-favorito:hover {
+    transform: scale(1.05);
+    opacity: 0.85;
+}
+
+.card {
+    animation: aparecer 0.4s ease both;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
